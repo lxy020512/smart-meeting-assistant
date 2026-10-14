@@ -31,5 +31,5 @@ def test_action_fallback_keeps_evidence() -> None:
     config = Settings(Path("."), Path("test.sqlite3"), "", "", "", 0.1, 0, 1, 30)
     actions, trace = MeetingAgents(DeepSeekClient(config)).action_agent([Segment("说话人1", 0, 1000, "王芳负责整理结论")])
     assert trace.fallback is True
-    assert actions[0]["evidence"] == "王芳负责整理结论"
+    assert actions["events"][0]["evidence"]["quote"] == "王芳负责整理结论"
 

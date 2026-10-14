@@ -2,6 +2,10 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.pytest-local/
+.test-temp/
+.test-run*/
+.tools/
 .coverage
 htmlcov/
 .env

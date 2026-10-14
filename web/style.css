@@ -23,4 +23,5 @@ button:hover { background: #0e556d; } button:disabled { opacity: .5; cursor: wai
 .search-panel { margin-top: 18px; } #search-form input { min-width: 280px; } .results { margin-top: 15px; display: grid; gap: 8px; }
 .result { border-left: 3px solid #7ca8b8; padding: 8px 11px; background: #f6f9fa; font-size: 13px; line-height: 1.55; } .result small { color: #6a7881; }
 @media (max-width: 760px) { .topbar { padding: 22px 18px; } main { padding: 18px 14px 32px; } .workspace { grid-template-columns: 1fr; } label { min-width: 100%; } #upload-form button { width: 100%; } }
+audio { width: 100%; margin-top: 15px; } details { margin-top: 20px; font-size: 13px; } pre { white-space: pre-wrap; overflow-wrap: anywhere; } .history-item { text-align: left; background: #edf3f6; color: #245369; } .result button { margin-top: 8px; }
 

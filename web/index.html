@@ -9,7 +9,7 @@
   <body>
     <header class="topbar">
       <div><span class="eyebrow">MEETING WORKSPACE</span><h1>智能会议助手</h1></div>
-      <span id="health" class="status">检查服务中</span>
+      <div><button id="token" class="quiet">连接凭据</button> <span id="health" class="status">检查服务中</span></div>
     </header>
     <main>
       <section class="toolbar" aria-label="上传会议">
@@ -20,14 +20,15 @@
         </form>
         <p class="hint">没有配置模型密钥时，系统仍会用本地规则完成基础纪要，报告会标记降级 Agent。</p>
       </section>
+      <section class="panel search-panel"><div class="panel-head"><h2>历史会议</h2></div><div id="history" class="results"></div></section>
       <section class="workspace">
         <div class="panel">
           <div class="panel-head"><h2>任务状态</h2><code id="job-id">尚未提交任务</code></div>
           <ol id="events" class="events"><li>上传会议文件后，后台事件会按顺序显示。</li></ol>
         </div>
-        <div class="panel report"><div class="panel-head"><h2>会议报告</h2><button id="refresh" class="quiet" type="button">刷新</button></div><div id="report-body" class="empty">报告将在任务完成后显示。</div></div>
+        <div class="panel report"><div class="panel-head"><h2>会议报告</h2><div><button id="download" class="quiet" type="button">导出 Markdown</button> <button id="refresh" class="quiet" type="button">刷新</button></div></div><audio id="audio" controls hidden></audio><div id="report-body" class="empty">报告将在任务完成后显示。</div><details><summary>原文与时间位置</summary><div id="transcript"></div></details></div>
       </section>
-      <section class="panel search-panel"><div class="panel-head"><h2>跨会议证据检索</h2></div><form id="search-form"><input name="q" placeholder="搜索决议、负责人或关键词" required /><button type="submit">检索</button></form><div id="search-results" class="results"></div></section>
+      <section class="panel search-panel"><div class="panel-head"><h2>跨会议证据检索</h2></div><form id="search-form"><input name="q" placeholder="搜索决议、负责人或关键词" required /><button type="submit">检索</button><button id="ask" type="button" class="quiet">带引用问答</button></form><div id="answer" class="hint"></div><div id="search-results" class="results"></div></section>
     </main>
     <script src="/static/app.js"></script>
   </body>

@@ -22,8 +22,8 @@ def main() -> None:
             source.write_text("李宁负责整理用户反馈，周三前完成。\n会议决定先做小范围灰度发布。", encoding="utf-8")
         config = Settings(root, root / "replay.sqlite3", "", "", "", 0.1, 0, 0.1, 30)
         store = Store(config.database)
-        meeting_id, _ = store.create_meeting(source.stem, str(source), source.suffix.lstrip("."))
-        MeetingPipeline(store, DeepSeekClient(config)).execute(meeting_id, "replay")
+        meeting_id, job_id = store.create_meeting(source.stem, str(source), source.suffix.lstrip("."))
+        MeetingPipeline(store, DeepSeekClient(config)).execute(meeting_id, job_id)
         print(json.dumps(store.report(meeting_id), ensure_ascii=False, indent=2))
 
 

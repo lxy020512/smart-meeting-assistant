@@ -54,7 +54,7 @@ POST /api/meetings
 项目自带 `scripts/replay_demo.py` 和 `scripts/benchmark.py`，不依赖网络密钥也能跑通完整 pipeline。测试覆盖队列并发领取、租约回收、fencing、心跳、幂等、checkpoint、模型重试、错误 JSON、证据拒绝、API 上传、报告导出和历史检索。运行：
 
 ```powershell
-python -m pytest -q
+python -m pytest -q --basetemp=.pytest-local
 python -m scripts.replay_demo
 python -m scripts.benchmark
 ```

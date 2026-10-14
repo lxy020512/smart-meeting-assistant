@@ -55,7 +55,7 @@ Copy-Item .env.example .env
 ```powershell
 .\.venv\Scripts\python.exe -m scripts.replay_demo
 .\.venv\Scripts\python.exe -m scripts.benchmark
-.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m pytest -q --basetemp=.pytest-local
 ```
 
 回放会输出完整报告 JSON，基准脚本会输出 5 次处理的平均耗时。耗时取决于机器和磁盘；它是本地回归指标，不是线上 SLA。真实 ASR 的 CER、说话人 DER 应使用带标注的中文会议数据集单独计算。

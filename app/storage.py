@@ -117,6 +117,10 @@ class Store:
         with self._connect() as db:
             return db.execute("SELECT * FROM jobs WHERE id=?", (job_id,)).fetchone()
 
+    def job_for_meeting(self, meeting_id: str) -> sqlite3.Row | None:
+        with self._connect() as db:
+            return db.execute("SELECT * FROM jobs WHERE meeting_id=? ORDER BY created_at DESC LIMIT 1", (meeting_id,)).fetchone()
+
     def events(self, job_id: str) -> list[sqlite3.Row]:
         with self._connect() as db:
             return list(db.execute("SELECT * FROM events WHERE job_id=? ORDER BY id", (job_id,)))
